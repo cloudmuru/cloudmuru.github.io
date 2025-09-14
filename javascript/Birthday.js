@@ -35,6 +35,7 @@
         const homeGif = document.getElementById('home-gif');
         const birthdayHeading = document.getElementById('birthday-heading');
         const birthdayClock = document.getElementById('birthday-clock');
+        const aboutPanel = document.getElementById('about-panel');
         const messagePanel = document.getElementById('message-panel');
         if (diff <= 0) {
             document.getElementById('countdown').textContent = "It's September 18th!";
@@ -44,6 +45,7 @@
             }
             if (birthdayHeading) birthdayHeading.style.display = '';
             if (birthdayClock) birthdayClock.style.display = '';
+            if (aboutPanel) aboutPanel.style.display = '';
             if (messagePanel) messagePanel.style.display = '';
             return;
         } else {
@@ -53,6 +55,7 @@
             }
             if (birthdayHeading) birthdayHeading.style.display = 'none';
             if (birthdayClock) birthdayClock.style.display = 'none';
+            if (aboutPanel) aboutPanel.style.display = 'none';
             if (messagePanel) messagePanel.style.display = 'none';
         }
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
