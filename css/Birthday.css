@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    --tab-bg: #EEE;
+    --tab-bg-active: black;
+    --tab-text: black;
+    --tab-text-active: white;
+    padding: 2rem;
+    font-family: 'Pixelify Sans', sans-serif;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    background-color: #152238;
+    background-image:
+        linear-gradient(45deg, #EDC001 2px, transparent 0),
+        linear-gradient(-45deg, #EDC001 2px, transparent 0),
+        linear-gradient(135deg, #EDC001 2px, transparent 0),
+        linear-gradient(-135deg, #EDC001 2px, transparent 0);
+    background-size: 3rem 3rem;
+}
+
+.tab-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tab-menu__button {
+    appearance: none;
+    border: 0;
+    background: var(--tab-bg);
+    color: var(--tab-text);
+    padding: 0.75rem 1rem;
+    letter-spacing: 2px;
+    font-family: 'Pixelify Sans', sans-serif;
+
+    &.is-active {
+        background: var(--tab-bg-active);
+        color: var(--tab-text-active);
+    }
+}
+
+.tab-panel {
+    display: none;
+    border: 2px solid black;
+    padding: 1rem 2rem;
+    background: white;
+
+    &.is-active {
+        display: block;
+    }
+}
+
+.tab-panel__heading {
+    text-transform: uppercase;
+}
+
+h3 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+p {
+    text-align: center;
+    font-style: italic;
+}
+
+img {
+    display: block;
+    margin: auto;
+    height: 150px;
+    width: 150px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+/* Modal Image */
+.modal-content {
+  display: block;
+  margin: 5% auto;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
