@@ -20,6 +20,8 @@
 
     // Countdown Timer for September 18th
     function updateCountdown() {
+        const aboutTab = document.getElementById('about-tab');
+        const messageTab = document.getElementById('message-tab');
         // Get current time in Manila timezone
         const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
         // Target: September 18th, 00:00 Manila time
@@ -38,6 +40,8 @@
         const aboutPanel = document.getElementById('about-panel');
         const messagePanel = document.getElementById('message-panel');
         if (diff <= 0) {
+            if (aboutTab) aboutTab.style.display = '';
+            if (messageTab) messageTab.style.display = '';
             document.getElementById('countdown').textContent = "It's September 18th!";
             if (homeGif) {
                 homeGif.src = "images/Happy Birthday Neko.gif";
@@ -49,6 +53,8 @@
             if (messagePanel) messagePanel.style.display = '';
             return;
         } else {
+            if (aboutTab) aboutTab.style.display = 'none';
+            if (messageTab) messageTab.style.display = 'none';
             if (homeGif) {
                 homeGif.src = "images/5810e746c78c7bc1b7e3f817790a142c.gif";
                 homeGif.alt = "Waiting Gif";
