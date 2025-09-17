@@ -23,17 +23,22 @@
         const aboutTab = document.getElementById('about-tab');
         const messageTab = document.getElementById('message-tab');
         // Get current time in Manila timezone
-        const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
-        // Target: September 18th, 00:00 Manila time
-        let target = new Date(Date.UTC(now.getFullYear(), 8, 18, 0, 0, 0));
-        // Convert target UTC to Manila local time
-        target = new Date(target.toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
-        if (now > target) {
-            // If today is after Sept 18, set target to next year
-            target = new Date(Date.UTC(now.getFullYear() + 1, 8, 18, 0, 0, 0));
-            target = new Date(target.toLocaleString('en-US', { timeZone: 'Asia/Manila' }));
+        const now = new Date();
+        // Get Manila time as a string and parse it back to a Date object
+        const nowManilaStr = now.toLocaleString('en-US', { timeZone: 'Asia/Manila' });
+        const nowManila = new Date(nowManilaStr);
+
+        // Build target Manila time string for this year
+        let year = nowManila.getFullYear();
+        let targetManilaStr = `9/18/${year}, 00:00:00`;
+        let targetManila = new Date(targetManilaStr + ' GMT+8');
+        // If now is after target, use next year
+        if (nowManila > targetManila) {
+            year += 1;
+            targetManilaStr = `9/18/${year}, 00:00:00`;
+            targetManila = new Date(targetManilaStr + ' GMT+8');
         }
-        const diff = target - now;
+        const diff = targetManila - nowManila;
         const homeGif = document.getElementById('home-gif');
         const birthdayHeading = document.getElementById('birthday-heading');
         const birthdayClock = document.getElementById('birthday-clock');
